@@ -1,13 +1,41 @@
-FUNCTION (parameters) : return_type
+FUNCTION dot_product(v1,v2: ARRAY_OF INTEGER) : FLOAT
 VAR
-    set_declarations
+    i:INTEGER
+    sum: FLOAT
 BEGIN
-    set_instructions
-    RETURN value ;
+    i:=0;
+    sum:=0;
+    IF (v1.length <>v2.length) THEN
+        write("on n'arrive pas à calculer le produit scalaire")
+    RETURN NAN ;
+    END_IF
+    FOR i FROM 0 TO v1.length STEP 1  DO
+        sum:=sum + v1[i]*v2[i]
+    END_FOR
+    RETURN sum ;
 END
 ALGORITHM algorithm_name
 VAR
-    set_declarations
+    v: ARRAY_OF vecters : ARRAY_OF INTEGER[n1];[n]
+    i,j,ps,n,n1 : INTEGER
 BEGIN
-    set_instructions
+    write ("donner moi  le nbr des vecteures  ")
+    read (n) 
+    write ("donner moi le rang des  vecteures ")
+    read (n1)
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO n1-1 STEP 1  DO
+        Read(vecters[j]);// insert from user
+    END_FOR
+    END_FOR
+    ps:= 0
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM i+1 TO n-1 STEP 1  DO
+        ps=dot_product(v[i],v[j])
+    IF (ps=0) THEN
+        write ( " les deux vecteures sont orthogonaux  ",v[i],v[j])
+    ELSE
+    write ( " les deux vecteures ne sont pas  orthogonaux  ",v[i],v[j])
+    END_IF
+    END_FOR
 END

@@ -13,19 +13,21 @@ END
 ALGORITHM Dot product
 VAR
     v: ARRAY_OF vecters : ARRAY_OF INTEGER[n1];[n]
-    ps,n,n1 : INTEGER
+    i,j,ps,n,n1 : INTEGER
 BEGIN
     
     write ("donner moi  le nbr des vecteures  ")
     read (n) 
     write ("donner moi le rang des  vecteures ")
     read (n1)
-    FOR i FROM 0 TO (n*n1)-1 STEP 1  DO
-        Read(vecters[i]);// insert from user
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM 0 TO n1-1 STEP 1  DO
+        Read(vecters[j]);// insert from user
+    END_FOR
     END_FOR
     ps:= 0
     FOR i FROM 0 TO n-1 STEP 1  DO
-    FOR j FROM i+1 TO n-2 STEP 1  DO
+    FOR j FROM i+1 TO n-1 STEP 1  DO
         dot_product(v[i],v[j],ps)
     IF (ps=0) THEN
         write ( " les deux vecteures sont orthogonaux  ",v[i],v[j])
