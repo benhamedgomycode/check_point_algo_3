@@ -1,0 +1,37 @@
+PROCEDURE dot_product(v1,v2: ARRAY_OF INTEGER , var ps : INTEGER)
+VAR
+    i:INTEGER
+BEGIN
+IF (v1.length <>v2.length) THEN
+    write("on n'arrive pas à calculer le produit scalaire" )
+ELSE
+    FOR i FROM 0 TO v1.length STEP 1  DO
+        ps:=ps + v1[i]*v2[i]
+    END_FOR
+END_IF
+END
+ALGORITHM Dot product
+VAR
+    v: ARRAY_OF vecters : ARRAY_OF INTEGER[n1];[n]
+    ps,n,n1 : INTEGER
+BEGIN
+    
+    write ("donner moi  le nbr des vecteures  ")
+    read (n) 
+    write ("donner moi le rang des  vecteures ")
+    read (n1)
+    FOR i FROM 0 TO (n*n1)-1 STEP 1  DO
+        Read(vecters[i]);// insert from user
+    END_FOR
+    ps:= 0
+    FOR i FROM 0 TO n-1 STEP 1  DO
+    FOR j FROM i+1 TO n-2 STEP 1  DO
+        dot_product(v[i],v[j],ps)
+    IF (ps=0) THEN
+        write ( " les deux vecteures sont orthogonaux  ",v[i],v[j])
+    ELSE
+    write ( " les deux vecteures ne sont pas  orthogonaux  ",v[i],v[j])
+    END_IF
+    END_FOR
+END
+
